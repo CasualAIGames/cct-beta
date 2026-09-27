@@ -123,6 +123,8 @@ function setLang(l) {
   document.querySelectorAll("[data-t]").forEach((el) => { el.innerHTML = d[el.dataset.t]; });
   document.querySelectorAll(".top button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.l === l)));
   try { localStorage.setItem("cct-beta-lang", l); } catch (_) {}
+  const v = document.querySelector("video"), src = l === "en" ? "trailer-en.mp4" : "trailer.mp4";
+  if (!v.src.endsWith(src)) { v.src = src; v.play().catch(() => {}); }
 }
 let saved = null; try { saved = localStorage.getItem("cct-beta-lang"); } catch (_) {}
 const q = new URLSearchParams(location.search).get("lang");
