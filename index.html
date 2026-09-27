@@ -2,71 +2,132 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Beta cerrada · Click & Conquer Tycoon</title>
-<meta name="description" content="Únete gratis a la beta cerrada de Click & Conquer Tycoon para Android. Dos pasos y a jugar.">
-<meta property="og:title" content="Beta cerrada · Click & Conquer Tycoon">
-<meta property="og:description" content="Empiezas vendiendo chatarra. Lo que pasa después… no te lo vamos a contar. Únete gratis a la beta (Android).">
-<meta property="og:image" content="https://casualaigames.github.io/cct-beta/icon-512.png">
+<meta name="description" content="Únete gratis a la beta cerrada de Click & Conquer Tycoon (Android). Join the free closed beta.">
+<meta property="og:title" content="Click & Conquer Tycoon · Closed beta">
+<meta property="og:description" content="Empiezas vendiendo chatarra. Lo que pasa después… no te lo vamos a contar. · You start out selling scrap. What happens next… we're not telling.">
+<meta property="og:image" content="https://casualaigames.github.io/cct-beta/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0a0806">
 <link rel="icon" href="icon-192.png">
 <style>
-  :root { --bg: #0b0b0b; --panel: #161616; --line: #2b2b2b; --ink: #f4f4f4; --mute: #a8a8a8; --gold: #ffcc33; --green: #43d17a; --red: #ff3b3b; }
-  * { box-sizing: border-box; }
-  body { margin: 0; background: radial-gradient(900px 500px at 50% -10%, rgba(255,204,51,.16), transparent 70%), var(--bg); color: var(--ink); font: 17px/1.5 system-ui, "Segoe UI", Roboto, sans-serif; }
-  main { max-width: 560px; margin: 0 auto; padding: 28px 16px 48px; }
-  .logo { display: block; width: 104px; height: 104px; margin: 8px auto 10px; border-radius: 24px; box-shadow: 0 10px 40px rgba(255,204,51,.25); }
-  h1 { font: 44px/1 Impact, "Arial Black", sans-serif; text-align: center; margin: 0; color: var(--gold); text-shadow: 3px 3px 0 #000; -webkit-text-stroke: 1.5px #000; }
-  h1 span { display: block; color: #fff; font-size: 38px; }
-  .badge { display: table; margin: 14px auto 0; padding: 5px 16px; border: 2px solid var(--red); border-radius: 99px; background: rgba(255,59,59,.12); font-weight: 700; font-size: 14px; letter-spacing: .06em; }
-  .lead { text-align: center; color: var(--mute); margin: 16px 0 26px; }
-  .lead b { color: var(--ink); }
-  .step { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 18px; margin-bottom: 14px; }
-  .step h2 { margin: 0 0 4px; font-size: 18px; display: flex; gap: 10px; align-items: center; }
-  .num { flex: none; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: var(--gold); color: #111; font-weight: 800; }
-  .step p { margin: 0 0 14px; color: var(--mute); font-size: 15px; }
-  .btn { display: block; text-align: center; text-decoration: none; font-weight: 800; font-size: 17px; padding: 15px 18px; border-radius: 12px; background: var(--green); color: #07210f; }
-  .btn.alt { background: var(--gold); color: #1d1500; }
-  .btn.ghost { background: transparent; color: var(--ink); border: 2px solid var(--line); }
-  .note { font-size: 14px; color: var(--mute); background: rgba(255,204,51,.07); border: 1px solid rgba(255,204,51,.25); border-radius: 12px; padding: 12px 14px; margin: 18px 0; }
-  details { border-top: 1px solid var(--line); padding: 12px 0; }
-  summary { cursor: pointer; font-weight: 700; }
-  details p { color: var(--mute); margin: 8px 0 0; font-size: 15px; }
-  footer { text-align: center; color: #6d6d6d; font-size: 13px; margin-top: 26px; }
-  footer a { color: #8d8d8d; }
+  :root { --bg:#0a0806; --ink:#fff7e6; --mute:#b9ad98; --gold:#ffcc33; --gold2:#ff9d1a; --green:#43d17a; --red:#ff3b3b; --glass:rgba(255,255,255,.055); --line:rgba(255,220,150,.16); }
+  * { box-sizing:border-box; }
+  html { background:var(--bg); }
+  body { margin:0; color:var(--ink); font:16px/1.5 system-ui,"Segoe UI",Roboto,sans-serif; overflow-x:hidden; min-height:100vh;
+    background:
+      radial-gradient(60vmax 40vmax at 15% -5%, rgba(255,157,26,.28), transparent 60%),
+      radial-gradient(50vmax 40vmax at 100% 30%, rgba(255,59,59,.16), transparent 60%),
+      radial-gradient(60vmax 50vmax at 50% 110%, rgba(67,209,122,.14), transparent 60%), var(--bg); }
+  body::before { content:""; position:fixed; inset:0; pointer-events:none; opacity:.35;
+    background-image:radial-gradient(rgba(255,204,51,.55) 1px, transparent 1.4px); background-size:34px 34px; mask-image:linear-gradient(#000, transparent 70%); }
+  main { position:relative; max-width:1040px; margin:0 auto; padding:18px 16px 56px; display:grid; gap:28px; grid-template-columns:1fr; }
+  @media (min-width:880px) { main { grid-template-columns: 330px 1fr; gap:48px; padding-top:48px; align-items:start; } .video { position:sticky; top:40px; } }
+  .top { position:absolute; top:14px; right:16px; display:flex; gap:4px; background:var(--glass); border:1px solid var(--line); border-radius:99px; padding:3px; z-index:2; }
+  .top button { border:0; background:transparent; color:var(--mute); font:700 13px system-ui; padding:6px 12px; border-radius:99px; cursor:pointer; }
+  .top button[aria-pressed=true] { background:var(--gold); color:#1d1500; }
+  .video { position:relative; width:min(330px, 78vw); margin:34px auto 0; aspect-ratio:9/16; border-radius:28px; padding:6px; background:linear-gradient(145deg, var(--gold), #7a4b00 45%, var(--red)); box-shadow:0 30px 80px rgba(255,157,26,.25), 0 0 0 1px rgba(0,0,0,.6); transform:rotate(-2deg); }
+  .video video { width:100%; height:100%; object-fit:cover; border-radius:22px; display:block; background:#000; }
+  .video .live { position:absolute; top:18px; left:18px; font:800 11px system-ui; letter-spacing:.14em; background:var(--red); color:#fff; padding:4px 9px; border-radius:6px; }
+  .copy { text-align:center; }
+  @media (min-width:880px) { .copy { text-align:left; } .video { margin:0; } }
+  .icon { width:72px; height:72px; border-radius:18px; box-shadow:0 8px 30px rgba(255,204,51,.35); vertical-align:middle; }
+  .kicker { display:inline-flex; gap:8px; align-items:center; margin-top:14px; padding:6px 14px; border-radius:99px; border:1px solid rgba(255,59,59,.6); background:rgba(255,59,59,.12); font:800 12px system-ui; letter-spacing:.16em; }
+  .kicker i { width:8px; height:8px; border-radius:50%; background:var(--red); box-shadow:0 0 0 0 rgba(255,59,59,.7); animation:ping 1.6s infinite; }
+  @keyframes ping { 70% { box-shadow:0 0 0 10px rgba(255,59,59,0); } 100% { box-shadow:0 0 0 0 rgba(255,59,59,0); } }
+  h1 { margin:14px 0 6px; font:900 clamp(40px, 9vw, 68px)/.92 Impact,"Arial Black",system-ui,sans-serif; letter-spacing:.01em; text-transform:uppercase;
+    background:linear-gradient(180deg,#fff3c4 0%, var(--gold) 45%, var(--gold2) 100%); -webkit-background-clip:text; background-clip:text; color:transparent; filter:drop-shadow(0 4px 0 #000) drop-shadow(0 12px 30px rgba(255,157,26,.35)); }
+  h1 small { display:block; font-size:.72em; color:#fff; -webkit-text-fill-color:#fff; }
+  .hook { font-size:clamp(18px, 4.4vw, 22px); color:var(--mute); margin:12px 0 22px; }
+  .hook b { color:var(--ink); }
+  .steps { display:grid; gap:12px; text-align:left; }
+  .step { position:relative; display:grid; grid-template-columns:44px 1fr; gap:4px 14px; align-items:center; padding:16px; border-radius:18px; background:var(--glass); border:1px solid var(--line); backdrop-filter:blur(8px); }
+  .step .n { grid-row:span 2; width:44px; height:44px; border-radius:14px; display:grid; place-items:center; font:900 20px Impact,system-ui; color:#1d1500; background:linear-gradient(160deg,#fff0b3,var(--gold) 50%,var(--gold2)); box-shadow:0 6px 18px rgba(255,204,51,.3); }
+  .step h2 { margin:0; font-size:17px; }
+  .step p { margin:0; color:var(--mute); font-size:14px; }
+  .step a { grid-column:1 / -1; margin-top:10px; }
+  .btn { display:flex; justify-content:center; align-items:center; gap:10px; text-decoration:none; font:800 17px system-ui; padding:15px 18px; border-radius:14px; transition:transform .15s, box-shadow .15s; }
+  .btn:active { transform:scale(.98); }
+  .b1 { background:linear-gradient(180deg,#ffe07a,var(--gold)); color:#1d1500; box-shadow:0 8px 24px rgba(255,204,51,.3); }
+  .b2 { background:linear-gradient(180deg,#6cf09c,var(--green)); color:#062012; box-shadow:0 8px 28px rgba(67,209,122,.4); animation:glow 2.2s ease-in-out infinite; }
+  @keyframes glow { 50% { box-shadow:0 8px 40px rgba(67,209,122,.7); } }
+  .b3 { background:transparent; color:var(--ink); border:1.5px solid var(--line); }
+  .perks { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin:22px 0 4px; padding:0; list-style:none; }
+  @media (min-width:880px) { .perks { justify-content:flex-start; } }
+  .perks li { font-size:13px; padding:6px 12px; border-radius:99px; background:var(--glass); border:1px solid var(--line); }
+  details { border-top:1px solid var(--line); padding:13px 2px; text-align:left; }
+  details:first-of-type { margin-top:18px; }
+  summary { cursor:pointer; font-weight:700; list-style:none; display:flex; justify-content:space-between; }
+  summary::after { content:"+"; color:var(--gold); font-weight:900; }
+  details[open] summary::after { content:"–"; }
+  details p { color:var(--mute); margin:8px 0 0; font-size:14px; }
+  footer { grid-column:1 / -1; text-align:center; color:#6f6557; font-size:12px; }
+  @media (prefers-reduced-motion:reduce) { * { animation:none !important; } }
 </style>
 </head>
 <body>
+<div class="top" role="group" aria-label="Idioma / Language">
+  <button data-l="es" aria-pressed="true">ES</button><button data-l="en" aria-pressed="false">EN</button>
+</div>
 <main>
-  <img class="logo" src="icon-512.png" alt="">
-  <h1>Click &amp; Conquer<span>Tycoon</span></h1>
-  <div class="badge">BETA CERRADA · ANDROID · GRATIS</div>
-  <p class="lead">Empiezas vendiendo chatarra. Lo que pasa después… <b>no te lo vamos a contar.</b><br>Juega antes que nadie y ayúdanos a decidir cómo acaba.</p>
-
-  <section class="step">
-    <h2><span class="num">1</span> Únete al grupo de testers</h2>
-    <p>Pulsa «Unirse al grupo» con la cuenta de Google que usas en tu móvil. Es lo que te da acceso.</p>
-    <a class="btn alt" href="https://groups.google.com/g/cct-testers" target="_blank" rel="noopener">Unirme al grupo</a>
+  <div class="video">
+    <video src="trailer.mp4" poster="poster.jpg" autoplay muted loop playsinline preload="metadata"></video>
+    <span class="live" data-t="live"></span>
+  </div>
+  <section class="copy">
+    <img class="icon" src="icon-192.png" alt="">
+    <div><span class="kicker"><i></i><span data-t="kicker"></span></span></div>
+    <h1>Click &amp; Conquer<small>Tycoon</small></h1>
+    <p class="hook" data-t="hook"></p>
+    <div class="steps">
+      <div class="step"><span class="n">1</span><h2 data-t="s1h"></h2><p data-t="s1p"></p>
+        <a class="btn b1" href="https://groups.google.com/g/cct-testers" target="_blank" rel="noopener" data-t="s1b"></a></div>
+      <div class="step"><span class="n">2</span><h2 data-t="s2h"></h2><p data-t="s2p"></p>
+        <a class="btn b2" href="https://play.google.com/apps/testing/com.casualaigames.clickconquer" target="_blank" rel="noopener" data-t="s2b"></a></div>
+      <div class="step"><span class="n">3</span><h2 data-t="s3h"></h2><p data-t="s3p"></p>
+        <a class="btn b3" href="https://play.google.com/store/apps/details?id=com.casualaigames.clickconquer" target="_blank" rel="noopener" data-t="s3b"></a></div>
+    </div>
+    <ul class="perks"><li data-t="p1"></li><li data-t="p2"></li><li data-t="p3"></li></ul>
+    <details><summary data-t="q1"></summary><p data-t="a1"></p></details>
+    <details><summary data-t="q2"></summary><p data-t="a2"></p></details>
+    <details><summary data-t="q3"></summary><p data-t="a3"></p></details>
   </section>
-
-  <section class="step">
-    <h2><span class="num">2</span> Activa la beta en Google Play</h2>
-    <p>Pulsa «Convertirse en tester». Si te dice que no tienes acceso, espera un minuto tras el paso 1 y vuelve a entrar.</p>
-    <a class="btn" href="https://play.google.com/apps/testing/com.casualaigames.clickconquer" target="_blank" rel="noopener">Convertirme en tester</a>
-  </section>
-
-  <section class="step">
-    <h2><span class="num">3</span> Descarga y juega</h2>
-    <p>Ya puedes instalarlo desde Google Play como cualquier app.</p>
-    <a class="btn ghost" href="https://play.google.com/store/apps/details?id=com.casualaigames.clickconquer" target="_blank" rel="noopener">Abrir en Google Play</a>
-  </section>
-
-  <div class="note">💬 <b>¿Qué te pedimos?</b> Juega unos días y cuéntanos qué te gusta y qué no desde el propio juego (Ajustes → Enviar opinión) o respondiendo a nuestras publicaciones.</div>
-
-  <details><summary>¿Tiene algún coste?</summary><p>No. La beta es gratis y no pedimos ningún pago para entrar.</p></details>
-  <details><summary>¿Funciona en iPhone?</summary><p>De momento solo Android.</p></details>
-  <details><summary>Me dice «no disponible» o «no tienes acceso»</summary><p>Comprueba que te uniste al grupo con la <b>misma cuenta de Google</b> que usas en Google Play. Si tienes varias cuentas en el móvil, cambia a esa en Play Store.</p></details>
-
   <footer>© CasualAIGames</footer>
 </main>
+<script>
+const T = {
+  es: { live:"BETA", kicker:"BETA CERRADA · ANDROID · GRATIS",
+    hook:"Empiezas vendiendo chatarra. Lo que pasa después… <b>no te lo vamos a contar.</b> Juega antes que nadie y decide cómo acaba.",
+    s1h:"Únete al grupo de testers", s1p:"Con la cuenta de Google de tu móvil.", s1b:"Unirme al grupo →",
+    s2h:"Activa la beta en Google Play", s2p:"Pulsa «Convertirse en tester». Si no te deja, espera un minuto.", s2b:"Convertirme en tester →",
+    s3h:"Descarga y juega", s3p:"Se instala como cualquier app.", s3b:"Abrir en Google Play",
+    p1:"💸 De chatarra a la galaxia", p2:"🚨 Esquiva a la policía", p3:"🗳️ Tu opinión cambia el juego",
+    q1:"¿Tiene algún coste?", a1:"No. La beta es gratis y no pedimos ningún pago para entrar.",
+    q2:"¿Funciona en iPhone?", a2:"De momento solo Android.",
+    q3:"Me dice «no tienes acceso»", a3:"Usa la <b>misma cuenta de Google</b> en el grupo y en Play Store. Si tienes varias en el móvil, cambia a esa en Play.",
+    title:"Beta cerrada · Click & Conquer Tycoon" },
+  en: { live:"BETA", kicker:"CLOSED BETA · ANDROID · FREE",
+    hook:"You start out selling scrap. What happens next… <b>we're not telling.</b> Play before anyone else and decide how it ends.",
+    s1h:"Join the testers group", s1p:"Use the Google account on your phone.", s1b:"Join the group →",
+    s2h:"Turn on the beta in Google Play", s2p:"Tap “Become a tester”. If it won't let you, wait a minute.", s2b:"Become a tester →",
+    s3h:"Download and play", s3p:"It installs like any other app.", s3b:"Open in Google Play",
+    p1:"💸 From scrap to the galaxy", p2:"🚨 Outrun the cops", p3:"🗳️ Your feedback shapes the game",
+    q1:"Does it cost anything?", a1:"No. The beta is free and we never ask for payment to join.",
+    q2:"Does it work on iPhone?", a2:"Android only for now.",
+    q3:"It says “you don't have access”", a3:"Use the <b>same Google account</b> for the group and the Play Store. If your phone has several, switch to that one in Play.",
+    title:"Closed beta · Click & Conquer Tycoon" }
+};
+function setLang(l) {
+  const d = T[l]; document.documentElement.lang = l; document.title = d.title;
+  document.querySelectorAll("[data-t]").forEach((el) => { el.innerHTML = d[el.dataset.t]; });
+  document.querySelectorAll(".top button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.l === l)));
+  try { localStorage.setItem("cct-beta-lang", l); } catch (_) {}
+}
+let saved = null; try { saved = localStorage.getItem("cct-beta-lang"); } catch (_) {}
+const q = new URLSearchParams(location.search).get("lang");
+setLang(q === "en" || q === "es" ? q : saved || (/^es\b/i.test(navigator.language || "") ? "es" : "en"));
+document.querySelectorAll(".top button").forEach((b) => b.onclick = () => setLang(b.dataset.l));
+</script>
 </body>
 </html>
