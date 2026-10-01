@@ -47,6 +47,11 @@
   .step h2 { margin:0; font-size:17px; }
   .step p { margin:0; color:var(--mute); font-size:14px; }
   .step a { grid-column:1 / -1; margin-top:10px; }
+  .join-guide { grid-column:1 / -1; margin:12px 0 0; }
+  .join-guide a { display:block; margin:0; border-radius:12px; overflow:hidden; background:#fff; }
+  .join-guide img { display:block; width:100%; height:auto; }
+  .join-guide figcaption { margin-top:8px; font-size:13px; color:var(--mute); }
+  .join-guide a:focus-visible { outline:3px solid var(--gold); outline-offset:4px; }
   .btn { display:flex; justify-content:center; align-items:center; gap:10px; text-decoration:none; font:800 17px system-ui; padding:15px 18px; border-radius:14px; transition:transform .15s, box-shadow .15s; }
   .btn:active { transform:scale(.98); }
   .b1 { background:linear-gradient(180deg,#ffe07a,var(--gold)); color:#1d1500; box-shadow:0 8px 24px rgba(255,204,51,.3); }
@@ -82,7 +87,8 @@
     <p class="hook" data-t="hook"></p>
     <div class="steps">
       <div class="step"><span class="n">1</span><h2 data-t="s1h"></h2><p data-t="s1p"></p>
-        <a class="btn b1" href="https://groups.google.com/g/cct-testers" target="_blank" rel="noopener" data-t="s1b"></a></div>
+        <a class="btn b1" href="https://groups.google.com/g/cct-testers" target="_blank" rel="noopener" data-t="s1b"></a>
+        <figure class="join-guide"><a href="assets/tester-guide/unirse-al-grupo.png" target="_blank" rel="noopener" data-alt="s1ImageLink"><img src="assets/tester-guide/unirse-al-grupo.png" width="1536" height="1024" decoding="async" data-alt="s1Image" alt="Flecha que señala el botón Unirse al grupo, arriba a la izquierda"></a><figcaption data-t="s1ImageCaption"></figcaption></figure></div>
       <div class="step"><span class="n">2</span><h2 data-t="s2h"></h2><p data-t="s2p"></p>
         <a class="btn b2" href="https://play.google.com/apps/testing/com.casualaigames.clickconquer" target="_blank" rel="noopener" data-t="s2b"></a></div>
       <div class="step"><span class="n">3</span><h2 data-t="s3h"></h2><p data-t="s3p"></p>
@@ -99,7 +105,8 @@
 const T = {
   es: { live:"BETA", kicker:"BETA CERRADA · ANDROID · GRATIS",
     hook:"Empiezas vendiendo chatarra. Lo que pasa después… <b>no te lo vamos a contar.</b> Juega antes que nadie y decide cómo acaba.",
-    s1h:"Únete al grupo de testers", s1p:"Con la cuenta de Google de tu móvil.", s1b:"Unirme al grupo →",
+    s1h:"Únete al grupo de testers", s1p:"Usa la cuenta de Google de tu móvil. En la página del grupo, pulsa «Unirse al grupo» arriba a la izquierda y completa la unión.", s1b:"Unirme al grupo →",
+    s1Image:"Captura con una flecha que señala Unirse al grupo arriba a la izquierda", s1ImageLink:"Ampliar la captura del botón Unirse al grupo", s1ImageCaption:"Si aparece «No tienes permiso», pulsa el botón señalado. Después vuelve aquí y continúa con el paso 2. Toca la imagen para ampliarla.",
     s2h:"Activa la beta en Google Play", s2p:"Pulsa «Convertirse en tester». Si no te deja, espera un minuto.", s2b:"Convertirme en tester →",
     s3h:"Descarga y juega", s3p:"Se instala como cualquier app.", s3b:"Abrir en Google Play",
     p1:"💸 De chatarra a la galaxia", p2:"🚨 Esquiva a la policía", p3:"🗳️ Tu opinión cambia el juego",
@@ -109,7 +116,8 @@ const T = {
     title:"Beta cerrada · Click & Conquer Tycoon" },
   en: { live:"BETA", kicker:"CLOSED BETA · ANDROID · FREE",
     hook:"You start out selling scrap. What happens next… <b>we're not telling.</b> Play before anyone else and decide how it ends.",
-    s1h:"Join the testers group", s1p:"Use the Google account on your phone.", s1b:"Join the group →",
+    s1h:"Join the testers group", s1p:"Use the Google account on your phone. On the group page, tap “Join group” at the top left and complete the joining process.", s1b:"Join the group →",
+    s1Image:"Screenshot with an arrow pointing to the Join group button at the top left", s1ImageLink:"Enlarge the screenshot of the Join group button", s1ImageCaption:"If you see a permission message, tap the highlighted button. Then return here and continue with step 2. Tap the image to enlarge it.",
     s2h:"Turn on the beta in Google Play", s2p:"Tap “Become a tester”. If it won't let you, wait a minute.", s2b:"Become a tester →",
     s3h:"Download and play", s3p:"It installs like any other app.", s3b:"Open in Google Play",
     p1:"💸 From scrap to the galaxy", p2:"🚨 Outrun the cops", p3:"🗳️ Your feedback shapes the game",
@@ -121,6 +129,7 @@ const T = {
 function setLang(l) {
   const d = T[l]; document.documentElement.lang = l; document.title = d.title;
   document.querySelectorAll("[data-t]").forEach((el) => { el.innerHTML = d[el.dataset.t]; });
+  document.querySelectorAll("[data-alt]").forEach((el) => el.setAttribute(el.tagName === "IMG" ? "alt" : "aria-label", d[el.dataset.alt]));
   document.querySelectorAll(".top button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.l === l)));
   try { localStorage.setItem("cct-beta-lang", l); } catch (_) {}
   const v = document.querySelector("video"), src = l === "en" ? "trailer-en.mp4" : "trailer.mp4";
